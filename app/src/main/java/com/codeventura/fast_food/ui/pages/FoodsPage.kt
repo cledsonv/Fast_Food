@@ -60,44 +60,38 @@ fun FoodsPage(navController: NavController, foodViewModel: FoodViewModel) {
 			
 			)
 		}) {
-		LazyColumn(
+		Column(
 			modifier = Modifier
 				.padding(it)
 				.fillMaxSize()
 				.padding(horizontal = 16.dp, vertical = 10.dp),
 			verticalArrangement = Arrangement.spacedBy(16.dp)
 		) {
-			item{
-				TextField(
-					value = searchQuery.value,
-					onValueChange = { query ->
-						searchQuery.value = query
-						foodViewModel.filterFoodItems(query)
-					},
-					label = { Text("Pesquisar") },
-					modifier = Modifier.fillMaxWidth()
-				)
-			}
-			item {
-				LazyRow(
-					modifier = Modifier.fillMaxWidth(),
-					horizontalArrangement = Arrangement.spacedBy(16.dp)
-				) {
-					items(foodViewModel.foodRoutes) { foodRoute ->
-						CategoryWidget(foodRoute = foodRoute, navController = navController)
-					}
+			TextField(
+				value = searchQuery.value,
+				onValueChange = { query ->
+					searchQuery.value = query
+					foodViewModel.filterFoodItems(query)
+				},
+				label = { Text("Pesquisar") },
+				modifier = Modifier.fillMaxWidth()
+			)
+			
+			LazyRow(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.spacedBy(16.dp)
+			) {
+				items(foodViewModel.foodRoutes) { foodRoute ->
+					CategoryWidget(foodRoute = foodRoute, navController = navController)
 				}
 			}
 			
-	
-			
-			item {
-				FoodList(
-					foodViewModel = foodViewModel,
-					navController = navController,
-					route = foodViewModel.foodRoutes.last().route
-				)
-			}
+			FoodList(
+				foodViewModel = foodViewModel,
+				navController = navController,
+				route = foodViewModel.foodRoutes.last().route
+			)
 		}
+		
 	}
 }

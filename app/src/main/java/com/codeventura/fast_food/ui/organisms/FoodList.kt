@@ -22,11 +22,10 @@ fun FoodList(foodViewModel: FoodViewModel, navController: NavController, route: 
 	val foodItems by foodViewModel.filteredFoodItems.observeAsState(emptyList())
 	val itemCount = foodItems.size
 	
-	Column(modifier = Modifier.fillMaxSize())  {
+	Column  {
 		Text(text = "Número de itens encontrados: $itemCount", style = MaterialTheme.typography.bodyMedium)
 		LazyColumn(
-			modifier = Modifier.height(500.dp)
-				.padding(horizontal = 16.dp, vertical = 10.dp)
+		
 		)  {
 			items(foodItems) { foodItem ->
 				FoodItem(
