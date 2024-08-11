@@ -6,15 +6,15 @@ O **Fast Food App** é uma aplicação móvel desenvolvida em Kotlin utilizando 
 ## Imagens
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/foods_page.jpg" width="30%" />
-  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/all_order.jpg" width="30%" />
-  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/delete_order.jpg" width="30%" />
+  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/foods_page.jpg" width="30%" />
+  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/all_order.jpg" width="30%" />
+  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/delete_order.jpg" width="30%" />
 </p>
 
 <p align="center">
-   <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/category_page.jpg" width="30%" />
-  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/select_order.jpg" width="30%" />
-  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/main/res/assets/finish_order.jpg" width="30%" />
+   <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/category_page.jpg" width="30%" />
+  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/select_order.jpg" width="30%" />
+  <img src="https://raw.githubusercontent.com/cledsonv/Fast_Food/master/app/src/assets/finish_order.jpg" width="30%" />
  
 </p>
 
