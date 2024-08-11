@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -50,6 +51,7 @@ fun CategoryPage(
 ) {
 	foodViewModel.fetchFoodItems(route = route)
 	val searchQuery = remember { mutableStateOf("") }
+	val errorMessage = foodViewModel.errorMessage.value
 	
 	Scaffold(modifier = Modifier.fillMaxSize(),
 		topBar = {
@@ -67,6 +69,16 @@ fun CategoryPage(
 				.fillMaxWidth()
 				.padding(horizontal = 16.dp, vertical = 10.dp)
 		) {
+			if ( errorMessage != null) {
+				Text(
+					text = errorMessage,
+					color = MaterialTheme.colorScheme.error,
+					modifier = Modifier.padding(16.dp)
+				)
+				Button(onClick = { foodViewModel.clearErrorMessage(route = foodViewModel.foodRoutes.last().route) }) {
+					Text("Tentar novamente")
+				}
+			} else {
 			TextField(
 				value = searchQuery.value,
 				onValueChange = { query ->
@@ -83,4 +95,4 @@ fun CategoryPage(
 			)
 		}
 	}
-}
+}}

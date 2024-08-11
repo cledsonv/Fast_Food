@@ -38,7 +38,7 @@ fun OrderAllPage(navController: NavController, foodViewModel: FoodViewModel) {
 	val searchQuery = remember { mutableStateOf("") }
 	
 	Scaffold(topBar = {
-		TopAppBar(title = { Text("Selecione a quantidade") }, navigationIcon = {
+		TopAppBar(title = { Text("Todos os pedidos") }, navigationIcon = {
 			IconButton(onClick = { navController.navigateUp() }) {
 				Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
 			}

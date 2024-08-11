@@ -19,6 +19,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -46,7 +47,7 @@ import com.codeventura.fast_food.viewmodel.FoodViewModel
 fun FoodsPage(navController: NavController, foodViewModel: FoodViewModel) {
 	foodViewModel.fetchFoodItems(route = foodViewModel.foodRoutes.last().route)
 	val searchQuery = remember { mutableStateOf("") }
-	
+	val errorMessage = foodViewModel.errorMessage.value
 	
 	Scaffold(modifier = Modifier.fillMaxSize(),
 		topBar = {
@@ -67,6 +68,16 @@ fun FoodsPage(navController: NavController, foodViewModel: FoodViewModel) {
 				.padding(horizontal = 16.dp, vertical = 10.dp),
 			verticalArrangement = Arrangement.spacedBy(16.dp)
 		) {
+			if ( errorMessage != null) {
+				Text(
+					text = errorMessage,
+					color = MaterialTheme.colorScheme.error,
+					modifier = Modifier.padding(16.dp)
+				)
+				Button(onClick = { foodViewModel.clearErrorMessage(route = foodViewModel.foodRoutes.last().route) }) {
+					Text("Tentar novamente")
+				}
+			} else {
 			TextField(
 				value = searchQuery.value,
 				onValueChange = { query ->
@@ -82,7 +93,7 @@ fun FoodsPage(navController: NavController, foodViewModel: FoodViewModel) {
 				horizontalArrangement = Arrangement.spacedBy(16.dp)
 			) {
 				items(foodViewModel.foodRoutes) { foodRoute ->
-					CategoryWidget(foodRoute = foodRoute, navController = navController)
+					CategoryWidget(foodRoute = foodRoute, navController = navController,)
 				}
 			}
 			
@@ -93,5 +104,5 @@ fun FoodsPage(navController: NavController, foodViewModel: FoodViewModel) {
 			)
 		}
 		
-	}
+	}}
 }
