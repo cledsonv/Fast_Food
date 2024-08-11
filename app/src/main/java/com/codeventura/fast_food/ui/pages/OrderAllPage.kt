@@ -61,7 +61,11 @@ fun OrderAllPage(navController: NavController, foodViewModel: FoodViewModel) {
 				modifier = Modifier.fillMaxWidth()
 			)
 			Spacer(modifier = Modifier.padding(10.dp))
-			OrderList(navController = navController, orderItems = orderItems)
+			OrderList(navController = navController, orderItems = orderItems,
+				onDelete = { orderItem ->
+					orderItem.getId()?.let { it1 -> foodViewModel.deleteOrder(it1) }
+				}
+			)
 			
 		}
 		

@@ -116,6 +116,21 @@ class FoodViewModel @Inject constructor(
 		}
 	}
 	
+	fun deleteOrder(id: Int) {
+		viewModelScope.launch(Dispatchers.IO) {
+			try {
+				orderItemDao.deleteById(id)
+				getOrders()
+				// Log ou outra forma de feedback para confirmar que a exclusão foi realizada
+				Log.d("OrderViewModel", "Pedido excluído com sucesso: $id")
+			} catch (e: Exception) {
+				// Lidar com o erro, por exemplo, registrar ou mostrar uma mensagem de erro
+				Log.e("OrderViewModel", "Erro ao excluir pedido", e)
+			}
+		}
+		
+	}
+	
 	fun filterOrderItems(query: String) {
 		_filteredOrderItems.value = orderItems.value?.filter {
 			it.food.name.contains(query, ignoreCase = true)
